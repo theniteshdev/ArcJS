@@ -1,2 +1,43 @@
 # ArcJS
-ArcJS: A lightweight, educational web framework for Node.js built from scratch to demystify how servers work. This project features a 100% dependency-free architecture to provide a deep, hands-on understanding of the request-response lifecycle.
+
+ArcJS: A **lightweight**, educational web framework for Node.js built from scratch to demystify how servers work. This project features a **100% dependency-free** architecture to provide a deep, hands-on understanding of the request-response lifecycle.
+
+## Documention
+
+_-nitesh_
+
+### Demo Application
+
+```javascript
+import Arc from "./src/index.mjs";
+
+const app = Arc();
+
+application.get("/dashboard", 
+  (req, res, next) => {
+    console.log("Auth Check...");
+    next(); // Passes control to the next function
+  },
+  (req, res) => {
+    res.end("Welcome to the secure dashboard!");
+  }
+);
+
+app.listen(); // automatically listen on port 8080
+```
+
+### Routes Function
+
+- `app.get()` handling get method.
+
+ags1- `path`
+ags2- `handler`
+arg3- `...middlewares`
+
+After passing path you can **register multiple handlers** and they run step by step if next is called by previous handler.
+
+### Listening to the server
+
+- `app.listen()` listen to server by deafult runs on localhost port 8080
+
+-[nitesh](https://x.com/theniteshdev)
