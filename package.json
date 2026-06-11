@@ -1,0 +1,35 @@
+{
+  "name": "arcjs",
+  "version": "1.0.0",
+  "description": "ArcJS: A lightweight, educational web framework for Node.js built from scratch to demystify how servers work. This project features a 100% dependency-free architecture to provide a deep, hands-on understanding of the request-response lifecycle.",
+  "main": "./src/index.cjs",
+  "type": "module",
+  "module": "./src/index.mjs",
+  "exports": {
+    ".": {
+      "import": "./src/index.mjs",
+      "require": "./src/index.cjs"
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theniteshdev/ArcJS.git"
+  },
+  "keywords": [
+    "nodejs",
+    "web-framework",
+    "backend",
+    "http-server",
+    "educational",
+    "zero-dependency"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theniteshdev/ArcJS/issues"
+  },
+  "homepage": "https://github.com/theniteshdev/ArcJS#readme"
+}
