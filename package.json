@@ -13,7 +13,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test1": "node ./test/test1-getRoute.js"
+    "test1": "node ./test/test1-getRoute.js",
+    "test2": "node ./test/test2-postRoute.js"
   },
   "repository": {
     "type": "git",
