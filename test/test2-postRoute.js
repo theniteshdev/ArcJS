@@ -35,4 +35,19 @@ app.get("/", (req, res) => {
     ])
 });
 
+app.get("/t2", (req, res) => {
+
+    // test 6
+    // res.json({
+    //     "message": "ok"
+    // })
+    // test 7
+    // res.status(203).json("apple")
+
+    res.status(400).json({
+        "username": "test8",
+        "password": "working fine"
+    })
+})
+
 app.listen();
