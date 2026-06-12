@@ -40,4 +40,10 @@ After passing path you can **register multiple handlers** and they run step by s
 
 - `app.listen()` listen to server by deafult runs on localhost port 8080
 
+### Methods
+- `send()` provide a convinent way way to send message or any json data perfectly.
+- `json()` sending JSON data with proper headers.
+- `status()` using status method, you can set response code, this return the response object So, you can chain this with other methods.
+
+
 -[nitesh](https://x.com/theniteshdev)
