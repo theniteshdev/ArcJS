@@ -73,6 +73,11 @@ function Arc() {
                         }; // looping through object
 
                     }
+                    if (typeof (headers[0]) === "string" && Array.isArray(headers[1])) {
+                        for (const values of headers[1]) {
+                            res.setHeader(headers[0], values);
+                        }
+                    }
                     return res;
                 }
 
