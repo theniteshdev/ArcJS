@@ -62,6 +62,20 @@ function Arc() {
                     return res;
                 }
 
+                res.set = (...headers) => {
+                    if (typeof (headers[0]) === "string") {
+                        res.setHeader(headers[0], headers[1]);
+                        return res;
+                    }
+                    if (typeof [headers[0]] === "object" && headers[0] !== null && !Array.isArray(headers[0])) {
+                        for (const headerName in headers[0]) {
+                            res.setHeader(headerName, headers[0][headerName]);
+                        }; // looping through object
+
+                    }
+                    return res;
+                }
+
                 // getting pathname and request method
                 const { pathname: reqPath } = new URL(req.url, `http://${req.headers.host}`);
                 const reqMethods = req.method.toUpperCase();
