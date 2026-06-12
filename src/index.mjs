@@ -44,12 +44,22 @@ function Arc() {
                 res.json = (body) => {
                     if (typeof (body) !== "object") {
                         try {
-                            body = JSON.stringify(body);
+                            res.setHeader("Content-Type", `application/json`);
+                            res.write(JSON.stringify(body));
+                            res.end();
                         } catch (error) {
                             throw new Error(error)
                         }
                     };
-                    sendProper("application/json; charset=utf-8", body);
+                    res.setHeader("Content-Type", `application/json`);
+                    res.write(JSON.stringify(body));
+                    res.end();
+                }
+
+                res.status = (code) => {
+                    // here i am not using writeHead because if we use write writeHead then its acts like response is done but here we have to provide chain so used 
+                    res.statusCode = code;
+                    return res;
                 }
 
                 // getting pathname and request method
