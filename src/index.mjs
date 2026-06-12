@@ -17,6 +17,28 @@ function Arc() {
         }) {
             // start a http server
             const server = http.createServer((req, res) => {
+                // adding extra methods to req object
+                res.send = (msg) => {
+                    if (Buffer.isBuffer(msg)) sendProper("application/octet-stream");
+                    switch (typeof msg) {
+                        case "string":
+                            sendProper("text/html; charset=utf-8", msg);
+                            break;
+                        case "object":
+                            sendProper("application/json; charset=utf-8", JSON.stringify(msg));
+                            break;
+                        default:
+                            sendProper("application/json; charset=utf-8", JSON.stringify(msg));
+                            break;
+                    }
+                    function sendProper(contentType, msg) {
+                        res.setHeader("Content-Type", `${contentType}`);
+                        const byteLength = Buffer.byteLength(msg, "utf-8");
+                        res.setHeader("Content-Length", byteLength);
+                        res.write(msg);
+                        res.end();
+                    }
+                }; // send method ending
 
                 // getting pathname and request method
                 const { pathname: reqPath } = new URL(req.url, `http://${req.headers.host}`);
