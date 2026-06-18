@@ -84,10 +84,10 @@ function Arc() {
                 // getting pathname and request method
                 const { pathname: reqPath } = new URL(req.url, `http://${req.headers.host}`);
                 const reqMethods = req.method.toUpperCase();
-                req.path = reqPath;
+                req.path = reqPath; // setting path property to the request obj
                 // loop through the registerd routes
                 for (const route of registeredRoutes) {
-                    req.route = route;
+                    req.route = route; // setting route propert to the request obj
                     if (route.route === reqPath && route.method === reqMethods) {
                         if (route.route.includes(/:.*/)) {
                             console.log(route.route)
