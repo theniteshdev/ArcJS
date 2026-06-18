@@ -50,4 +50,24 @@ app.get("/t2", (req, res) => {
     })
 })
 
+app.get("/t3", (req, res) => {
+    // res.set({
+    //     "Content-Type": "application/json;charset=utf8",
+    //     "Set-Cookie": "uid=45r4"
+    // });
+    // res.set("apple", "mango")
+    res.set("Set-Cookie", [
+        "name=nitesh", "age=2", "uid=4r4f"
+    ]);
+    res.send({
+        "message": "hmm, working fine!"
+    })
+})
+
+
+app.post("/", (req, res) => {
+    res.status(201).json({
+        "message": "Ok"
+    })
+})
 app.listen();
