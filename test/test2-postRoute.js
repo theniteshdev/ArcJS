@@ -66,6 +66,8 @@ app.get("/t3", (req, res) => {
 
 
 app.post("/", (req, res) => {
+    console.log(req.path)
+    console.log(req.route)
     res.status(201).json({
         "message": "Ok"
     })
