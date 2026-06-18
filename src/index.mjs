@@ -117,9 +117,6 @@ function Arc() {
                 for (const route of registeredRoutes) {
                     req.route = route; // setting route propert to the request obj
                     if (route.route === reqPath && route.method === reqMethods) {
-                        if (route.route.includes(/:.*/)) {
-                            console.log(route.route)
-                        }
                         const stack = [...route.middlwares];
                         let index = 0;
                         function next() {
