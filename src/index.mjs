@@ -11,6 +11,34 @@ function Arc() {
                 middlwares: [...middlwares]
             })
         },
+        post(route, ...middlwares) {
+            registeredRoutes.push({
+                "method": "POST",
+                "route": route,
+                middlwares: [...middlwares]
+            })
+        },
+        put(route, ...middlwares) {
+            registeredRoutes.push({
+                "method": "PUT",
+                "route": route,
+                middlwares: [...middlwares]
+            })
+        },
+        delete(route, ...middlwares) {
+            registeredRoutes.push({
+                "method": "DELETE",
+                "route": route,
+                middlwares: [...middlwares]
+            })
+        },
+        patch(route, ...middlwares) {
+            registeredRoutes.push({
+                "method": "PATCH",
+                "route": route,
+                middlwares: [...middlwares]
+            })
+        },
         listen(port = 8080, hostname = "localhost", func = (err) => {
             if (err) throw new Error(err?.message || "Something went wrong!");
             console.log(`Server running at port ${port}`)
