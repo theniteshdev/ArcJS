@@ -134,6 +134,28 @@ function Arc() {
 
             server.listen(port, hostname, func)
 
+        },
+        // implenting json body parsing middleware
+        bodyParse() {
+            return (req, res, next) => {
+                let rawString = "";
+                req.on("data", (chunk) => {
+                    rawString += chunk.toString();
+                });
+                req.on("end", () => {
+                    if (!rawString) {
+                        req.body = {};
+                        next();
+                        return;
+                    }
+                    req.body = JSON.parse(rawString);
+                    next();
+                });
+                req.on("error", (err) => {
+                    console.log(err)
+                    next(err);
+                })
+            }
         }
     }
 };
