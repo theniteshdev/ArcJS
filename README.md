@@ -83,4 +83,8 @@ res.set({
 - `req.path` get the path name of the request.
 - `req.route` get the route name that is registed in.
 
--[nitesh](https://x.com/theniteshdev)
+### Built In Middlwares
+
+- `app.bodyParse` This middlware handle the JSON data coming from body and shape it into json form then add into req.body property
+
+  -[nitesh](https://x.com/theniteshdev)
